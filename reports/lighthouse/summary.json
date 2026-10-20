@@ -1,0 +1,955 @@
+{
+  "startedAt": "2026-10-20T20:20:09.018Z",
+  "baseURL": "http://127.0.0.1:4174/",
+  "environment": {
+    "os": "win32 10.0.26200 x64",
+    "cpu": "AMD Ryzen 7 5700                               ",
+    "logicalCPUs": 16,
+    "memoryGB": 32,
+    "node": "v24.15.0",
+    "playwright": "1.64.1",
+    "lighthouse": "13.5.0",
+    "chromiumExecutable": "C:\\Users\\estou\\AppData\\Local\\ms-playwright\\chromium-1248\\chrome-win64\\chrome.exe",
+    "chromium": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+  },
+  "conditions": {
+    "server": "npm run preview, existing dist build",
+    "runsPerPageAndProfile": 3,
+    "profiles": {
+      "desktop": {
+        "formFactor": "desktop",
+        "screenEmulation": {
+          "mobile": false,
+          "width": 1440,
+          "height": 1000,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "throttling": {
+          "rttMs": 40,
+          "throughputKbps": 10240,
+          "cpuSlowdownMultiplier": 1,
+          "requestLatencyMs": 0,
+          "downloadThroughputKbps": 0,
+          "uploadThroughputKbps": 0
+        }
+      },
+      "mobile": {
+        "formFactor": "mobile",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 390,
+          "height": 844,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "cpuSlowdownMultiplier": 4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.56,
+          "uploadThroughputKbps": 675
+        }
+      }
+    },
+    "network": "Lighthouse simulated throttling; REST and Socket.IO use the unchanged default browser MSW scenario",
+    "storage": "Fresh Chromium profile per run; normal application assets, fonts and UI; no route blocking or audit-only scenario"
+  },
+  "targets": {
+    "performance": 90,
+    "accessibility": 95,
+    "best-practices": 95,
+    "seo": 90
+  },
+  "results": [
+    {
+      "page": "home",
+      "path": "/",
+      "profile": "desktop",
+      "measurements": [
+        {
+          "run": 1,
+          "categories": {
+            "performance": 100,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "lcpMs": 815.8378,
+          "cls": 0,
+          "tbtMs": 0,
+          "warnings": [],
+          "failedAudits": [
+            {
+              "id": "largest-contentful-paint",
+              "title": "Largest Contentful Paint",
+              "score": 0.98,
+              "displayValue": "0,8 s"
+            },
+            {
+              "id": "unused-javascript",
+              "title": "Reduza o JavaScript não usado",
+              "score": 0,
+              "displayValue": "Economia estimada de 90 KiB"
+            },
+            {
+              "id": "bf-cache",
+              "title": "A página impede a restauração do cache de avanço e retorno",
+              "score": 0,
+              "displayValue": "1 motivo para a falha"
+            },
+            {
+              "id": "lcp-discovery-insight",
+              "title": "Descoberta de solicitações de LCP",
+              "score": 0
+            },
+            {
+              "id": "network-dependency-tree-insight",
+              "title": "Árvore de dependência da rede",
+              "score": 0
+            },
+            {
+              "id": "render-blocking-insight",
+              "title": "Solicitações que bloquearam a renderização",
+              "score": 0.5
+            }
+          ]
+        },
+        {
+          "run": 2,
+          "categories": {
+            "performance": 100,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "lcpMs": 812.1077,
+          "cls": 0,
+          "tbtMs": 0,
+          "warnings": [],
+          "failedAudits": [
+            {
+              "id": "largest-contentful-paint",
+              "title": "Largest Contentful Paint",
+              "score": 0.98,
+              "displayValue": "0,8 s"
+            },
+            {
+              "id": "unused-javascript",
+              "title": "Reduza o JavaScript não usado",
+              "score": 0,
+              "displayValue": "Economia estimada de 90 KiB"
+            },
+            {
+              "id": "bf-cache",
+              "title": "A página impede a restauração do cache de avanço e retorno",
+              "score": 0,
+              "displayValue": "1 motivo para a falha"
+            },
+            {
+              "id": "lcp-discovery-insight",
+              "title": "Descoberta de solicitações de LCP",
+              "score": 0
+            },
+            {
+              "id": "network-dependency-tree-insight",
+              "title": "Árvore de dependência da rede",
+              "score": 0
+            },
+            {
+              "id": "render-blocking-insight",
+              "title": "Solicitações que bloquearam a renderização",
+              "score": 0.5
+            }
+          ]
+        },
+        {
+          "run": 3,
+          "categories": {
+            "performance": 100,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "lcpMs": 814.6521,
+          "cls": 0,
+          "tbtMs": 0,
+          "warnings": [],
+          "failedAudits": [
+            {
+              "id": "largest-contentful-paint",
+              "title": "Largest Contentful Paint",
+              "score": 0.98,
+              "displayValue": "0,8 s"
+            },
+            {
+              "id": "unused-javascript",
+              "title": "Reduza o JavaScript não usado",
+              "score": 0,
+              "displayValue": "Economia estimada de 90 KiB"
+            },
+            {
+              "id": "bf-cache",
+              "title": "A página impede a restauração do cache de avanço e retorno",
+              "score": 0,
+              "displayValue": "1 motivo para a falha"
+            },
+            {
+              "id": "lcp-discovery-insight",
+              "title": "Descoberta de solicitações de LCP",
+              "score": 0
+            },
+            {
+              "id": "network-dependency-tree-insight",
+              "title": "Árvore de dependência da rede",
+              "score": 0
+            },
+            {
+              "id": "render-blocking-insight",
+              "title": "Solicitações que bloquearam a renderização",
+              "score": 0.5
+            }
+          ]
+        }
+      ],
+      "median": {
+        "categories": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcpMs": 814.6521,
+        "cls": 0,
+        "tbtMs": 0
+      },
+      "belowTarget": []
+    },
+    {
+      "page": "home",
+      "path": "/",
+      "profile": "mobile",
+      "measurements": [
+        {
+          "run": 1,
+          "categories": {
+            "performance": 87,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "lcpMs": 3838.9791999999998,
+          "cls": 0,
+          "tbtMs": 88.49479999999994,
+          "warnings": [],
+          "failedAudits": [
+            {
+              "id": "first-contentful-paint",
+              "title": "First Contentful Paint",
+              "score": 0.87,
+              "displayValue": "1,9 s"
+            },
+            {
+              "id": "largest-contentful-paint",
+              "title": "Largest Contentful Paint",
+              "score": 0.54,
+              "displayValue": "3,8 s"
+            },
+            {
+              "id": "speed-index",
+              "title": "Speed Index",
+              "score": 0.99,
+              "displayValue": "2,1 s"
+            },
+            {
+              "id": "total-blocking-time",
+              "title": "Total Blocking Time",
+              "score": 0.99,
+              "displayValue": "90 ms"
+            },
+            {
+              "id": "max-potential-fid",
+              "title": "Max Potential First Input Delay",
+              "score": 0.96,
+              "displayValue": "100 ms"
+            },
+            {
+              "id": "interactive",
+              "title": "Time to Interactive",
+              "score": 0.89,
+              "displayValue": "3,8 s"
+            },
+            {
+              "id": "unused-javascript",
+              "title": "Reduza o JavaScript não usado",
+              "score": 0,
+              "displayValue": "Economia estimada de 90 KiB"
+            },
+            {
+              "id": "bf-cache",
+              "title": "A página impede a restauração do cache de avanço e retorno",
+              "score": 0,
+              "displayValue": "1 motivo para a falha"
+            },
+            {
+              "id": "lcp-discovery-insight",
+              "title": "Descoberta de solicitações de LCP",
+              "score": 0
+            },
+            {
+              "id": "network-dependency-tree-insight",
+              "title": "Árvore de dependência da rede",
+              "score": 0
+            },
+            {
+              "id": "render-blocking-insight",
+              "title": "Solicitações que bloquearam a renderização",
+              "score": 0.5
+            }
+          ]
+        },
+        {
+          "run": 2,
+          "categories": {
+            "performance": 87,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "lcpMs": 3837.3817,
+          "cls": 0,
+          "tbtMs": 59.09542499999998,
+          "warnings": [],
+          "failedAudits": [
+            {
+              "id": "first-contentful-paint",
+              "title": "First Contentful Paint",
+              "score": 0.87,
+              "displayValue": "1,9 s"
+            },
+            {
+              "id": "largest-contentful-paint",
+              "title": "Largest Contentful Paint",
+              "score": 0.54,
+              "displayValue": "3,8 s"
+            },
+            {
+              "id": "speed-index",
+              "title": "Speed Index",
+              "score": 0.99,
+              "displayValue": "2,1 s"
+            },
+            {
+              "id": "max-potential-fid",
+              "title": "Max Potential First Input Delay",
+              "score": 0.98,
+              "displayValue": "80 ms"
+            },
+            {
+              "id": "interactive",
+              "title": "Time to Interactive",
+              "score": 0.89,
+              "displayValue": "3,8 s"
+            },
+            {
+              "id": "unused-javascript",
+              "title": "Reduza o JavaScript não usado",
+              "score": 0,
+              "displayValue": "Economia estimada de 90 KiB"
+            },
+            {
+              "id": "bf-cache",
+              "title": "A página impede a restauração do cache de avanço e retorno",
+              "score": 0,
+              "displayValue": "1 motivo para a falha"
+            },
+            {
+              "id": "lcp-discovery-insight",
+              "title": "Descoberta de solicitações de LCP",
+              "score": 0
+            },
+            {
+              "id": "network-dependency-tree-insight",
+              "title": "Árvore de dependência da rede",
+              "score": 0
+            },
+            {
+              "id": "render-blocking-insight",
+              "title": "Solicitações que bloquearam a renderização",
+              "score": 0.5
+            }
+          ]
+        },
+        {
+          "run": 3,
+          "categories": {
+            "performance": 87,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "lcpMs": 3841.3795,
+          "cls": 0,
+          "tbtMs": 64.594875,
+          "warnings": [],
+          "failedAudits": [
+            {
+              "id": "first-contentful-paint",
+              "title": "First Contentful Paint",
+              "score": 0.87,
+              "displayValue": "1,9 s"
+            },
+            {
+              "id": "largest-contentful-paint",
+              "title": "Largest Contentful Paint",
+              "score": 0.54,
+              "displayValue": "3,8 s"
+            },
+            {
+              "id": "speed-index",
+              "title": "Speed Index",
+              "score": 0.99,
+              "displayValue": "2,1 s"
+            },
+            {
+              "id": "max-potential-fid",
+              "title": "Max Potential First Input Delay",
+              "score": 0.98,
+              "displayValue": "90 ms"
+            },
+            {
+              "id": "interactive",
+              "title": "Time to Interactive",
+              "score": 0.89,
+              "displayValue": "3,8 s"
+            },
+            {
+              "id": "unused-javascript",
+              "title": "Reduza o JavaScript não usado",
+              "score": 0,
+              "displayValue": "Economia estimada de 90 KiB"
+            },
+            {
+              "id": "bf-cache",
+              "title": "A página impede a restauração do cache de avanço e retorno",
+              "score": 0,
+              "displayValue": "1 motivo para a falha"
+            },
+            {
+              "id": "lcp-discovery-insight",
+              "title": "Descoberta de solicitações de LCP",
+              "score": 0
+            },
+            {
+              "id": "network-dependency-tree-insight",
+              "title": "Árvore de dependência da rede",
+              "score": 0
+            },
+            {
+              "id": "render-blocking-insight",
+              "title": "Solicitações que bloquearam a renderização",
+              "score": 0.5
+            }
+          ]
+        }
+      ],
+      "median": {
+        "categories": {
+          "performance": 87,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcpMs": 3838.9791999999998,
+        "cls": 0,
+        "tbtMs": 64.594875
+      },
+      "belowTarget": [
+        "performance"
+      ]
+    },
+    {
+      "page": "detail",
+      "path": "/nft/cosmic-001",
+      "profile": "desktop",
+      "measurements": [
+        {
+          "run": 1,
+          "categories": {
+            "performance": 92,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "lcpMs": 834.0982,
+          "cls": 0.1635105263157895,
+          "tbtMs": 0,
+          "warnings": [],
+          "failedAudits": [
+            {
+              "id": "largest-contentful-paint",
+              "title": "Largest Contentful Paint",
+              "score": 0.97,
+              "displayValue": "0,8 s"
+            },
+            {
+              "id": "cumulative-layout-shift",
+              "title": "Cumulative Layout Shift",
+              "score": 0.72,
+              "displayValue": "0,164"
+            },
+            {
+              "id": "layout-shifts",
+              "title": "Evite grandes mudanças no layout",
+              "score": 0,
+              "displayValue": "1 troca de layout encontrada"
+            },
+            {
+              "id": "label-content-name-mismatch",
+              "title": "Elementos com rótulos de texto visíveis não têm nomes acessíveis correspondentes.",
+              "score": 0
+            },
+            {
+              "id": "unused-javascript",
+              "title": "Reduza o JavaScript não usado",
+              "score": 0,
+              "displayValue": "Economia estimada de 90 KiB"
+            },
+            {
+              "id": "bf-cache",
+              "title": "A página impede a restauração do cache de avanço e retorno",
+              "score": 0,
+              "displayValue": "1 motivo para a falha"
+            },
+            {
+              "id": "cls-culprits-insight",
+              "title": "Causas da troca de layout",
+              "score": 0
+            },
+            {
+              "id": "lcp-discovery-insight",
+              "title": "Descoberta de solicitações de LCP",
+              "score": 0
+            },
+            {
+              "id": "network-dependency-tree-insight",
+              "title": "Árvore de dependência da rede",
+              "score": 0
+            },
+            {
+              "id": "render-blocking-insight",
+              "title": "Solicitações que bloquearam a renderização",
+              "score": 0.5
+            }
+          ]
+        },
+        {
+          "run": 2,
+          "categories": {
+            "performance": 93,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "lcpMs": 811.4819,
+          "cls": 0.1635105263157895,
+          "tbtMs": 0,
+          "warnings": [],
+          "failedAudits": [
+            {
+              "id": "largest-contentful-paint",
+              "title": "Largest Contentful Paint",
+              "score": 0.98,
+              "displayValue": "0,8 s"
+            },
+            {
+              "id": "cumulative-layout-shift",
+              "title": "Cumulative Layout Shift",
+              "score": 0.72,
+              "displayValue": "0,164"
+            },
+            {
+              "id": "layout-shifts",
+              "title": "Evite grandes mudanças no layout",
+              "score": 0,
+              "displayValue": "1 troca de layout encontrada"
+            },
+            {
+              "id": "label-content-name-mismatch",
+              "title": "Elementos com rótulos de texto visíveis não têm nomes acessíveis correspondentes.",
+              "score": 0
+            },
+            {
+              "id": "unused-javascript",
+              "title": "Reduza o JavaScript não usado",
+              "score": 0,
+              "displayValue": "Economia estimada de 90 KiB"
+            },
+            {
+              "id": "bf-cache",
+              "title": "A página impede a restauração do cache de avanço e retorno",
+              "score": 0,
+              "displayValue": "1 motivo para a falha"
+            },
+            {
+              "id": "cls-culprits-insight",
+              "title": "Causas da troca de layout",
+              "score": 0
+            },
+            {
+              "id": "lcp-discovery-insight",
+              "title": "Descoberta de solicitações de LCP",
+              "score": 0
+            },
+            {
+              "id": "network-dependency-tree-insight",
+              "title": "Árvore de dependência da rede",
+              "score": 0
+            },
+            {
+              "id": "render-blocking-insight",
+              "title": "Solicitações que bloquearam a renderização",
+              "score": 0.5
+            }
+          ]
+        },
+        {
+          "run": 3,
+          "categories": {
+            "performance": 92,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "lcpMs": 834.4281,
+          "cls": 0.1635105263157895,
+          "tbtMs": 0,
+          "warnings": [],
+          "failedAudits": [
+            {
+              "id": "largest-contentful-paint",
+              "title": "Largest Contentful Paint",
+              "score": 0.97,
+              "displayValue": "0,8 s"
+            },
+            {
+              "id": "cumulative-layout-shift",
+              "title": "Cumulative Layout Shift",
+              "score": 0.72,
+              "displayValue": "0,164"
+            },
+            {
+              "id": "layout-shifts",
+              "title": "Evite grandes mudanças no layout",
+              "score": 0,
+              "displayValue": "1 troca de layout encontrada"
+            },
+            {
+              "id": "label-content-name-mismatch",
+              "title": "Elementos com rótulos de texto visíveis não têm nomes acessíveis correspondentes.",
+              "score": 0
+            },
+            {
+              "id": "unused-javascript",
+              "title": "Reduza o JavaScript não usado",
+              "score": 0,
+              "displayValue": "Economia estimada de 90 KiB"
+            },
+            {
+              "id": "bf-cache",
+              "title": "A página impede a restauração do cache de avanço e retorno",
+              "score": 0,
+              "displayValue": "1 motivo para a falha"
+            },
+            {
+              "id": "cls-culprits-insight",
+              "title": "Causas da troca de layout",
+              "score": 0
+            },
+            {
+              "id": "lcp-discovery-insight",
+              "title": "Descoberta de solicitações de LCP",
+              "score": 0
+            },
+            {
+              "id": "network-dependency-tree-insight",
+              "title": "Árvore de dependência da rede",
+              "score": 0
+            },
+            {
+              "id": "render-blocking-insight",
+              "title": "Solicitações que bloquearam a renderização",
+              "score": 0.5
+            }
+          ]
+        }
+      ],
+      "median": {
+        "categories": {
+          "performance": 92,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcpMs": 834.0982,
+        "cls": 0.1635105263157895,
+        "tbtMs": 0
+      },
+      "belowTarget": []
+    },
+    {
+      "page": "detail",
+      "path": "/nft/cosmic-001",
+      "profile": "mobile",
+      "measurements": [
+        {
+          "run": 1,
+          "categories": {
+            "performance": 87,
+            "accessibility": 99,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "lcpMs": 3910.0784999999996,
+          "cls": 0,
+          "tbtMs": 24.5,
+          "warnings": [],
+          "failedAudits": [
+            {
+              "id": "first-contentful-paint",
+              "title": "First Contentful Paint",
+              "score": 0.87,
+              "displayValue": "1,9 s"
+            },
+            {
+              "id": "largest-contentful-paint",
+              "title": "Largest Contentful Paint",
+              "score": 0.52,
+              "displayValue": "3,9 s"
+            },
+            {
+              "id": "speed-index",
+              "title": "Speed Index",
+              "score": 0.99,
+              "displayValue": "2,0 s"
+            },
+            {
+              "id": "max-potential-fid",
+              "title": "Max Potential First Input Delay",
+              "score": 0.99,
+              "displayValue": "70 ms"
+            },
+            {
+              "id": "interactive",
+              "title": "Time to Interactive",
+              "score": 0.88,
+              "displayValue": "3,9 s"
+            },
+            {
+              "id": "heading-order",
+              "title": "Os elementos de título não aparecem em uma ordem sequencial descendente",
+              "score": 0
+            },
+            {
+              "id": "unused-javascript",
+              "title": "Reduza o JavaScript não usado",
+              "score": 0,
+              "displayValue": "Economia estimada de 90 KiB"
+            },
+            {
+              "id": "bf-cache",
+              "title": "A página impede a restauração do cache de avanço e retorno",
+              "score": 0,
+              "displayValue": "1 motivo para a falha"
+            },
+            {
+              "id": "lcp-discovery-insight",
+              "title": "Descoberta de solicitações de LCP",
+              "score": 0
+            },
+            {
+              "id": "network-dependency-tree-insight",
+              "title": "Árvore de dependência da rede",
+              "score": 0
+            },
+            {
+              "id": "render-blocking-insight",
+              "title": "Solicitações que bloquearam a renderização",
+              "score": 0.5
+            }
+          ]
+        },
+        {
+          "run": 2,
+          "categories": {
+            "performance": 87,
+            "accessibility": 99,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "lcpMs": 3910.7338,
+          "cls": 0,
+          "tbtMs": 19.5,
+          "warnings": [],
+          "failedAudits": [
+            {
+              "id": "first-contentful-paint",
+              "title": "First Contentful Paint",
+              "score": 0.87,
+              "displayValue": "1,9 s"
+            },
+            {
+              "id": "largest-contentful-paint",
+              "title": "Largest Contentful Paint",
+              "score": 0.52,
+              "displayValue": "3,9 s"
+            },
+            {
+              "id": "speed-index",
+              "title": "Speed Index",
+              "score": 0.99,
+              "displayValue": "2,0 s"
+            },
+            {
+              "id": "max-potential-fid",
+              "title": "Max Potential First Input Delay",
+              "score": 0.99,
+              "displayValue": "70 ms"
+            },
+            {
+              "id": "interactive",
+              "title": "Time to Interactive",
+              "score": 0.88,
+              "displayValue": "3,9 s"
+            },
+            {
+              "id": "heading-order",
+              "title": "Os elementos de título não aparecem em uma ordem sequencial descendente",
+              "score": 0
+            },
+            {
+              "id": "unused-javascript",
+              "title": "Reduza o JavaScript não usado",
+              "score": 0,
+              "displayValue": "Economia estimada de 90 KiB"
+            },
+            {
+              "id": "bf-cache",
+              "title": "A página impede a restauração do cache de avanço e retorno",
+              "score": 0,
+              "displayValue": "1 motivo para a falha"
+            },
+            {
+              "id": "lcp-discovery-insight",
+              "title": "Descoberta de solicitações de LCP",
+              "score": 0
+            },
+            {
+              "id": "network-dependency-tree-insight",
+              "title": "Árvore de dependência da rede",
+              "score": 0
+            },
+            {
+              "id": "render-blocking-insight",
+              "title": "Solicitações que bloquearam a renderização",
+              "score": 0.5
+            }
+          ]
+        },
+        {
+          "run": 3,
+          "categories": {
+            "performance": 87,
+            "accessibility": 99,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "lcpMs": 3914.1727,
+          "cls": 0,
+          "tbtMs": 28.5,
+          "warnings": [],
+          "failedAudits": [
+            {
+              "id": "first-contentful-paint",
+              "title": "First Contentful Paint",
+              "score": 0.87,
+              "displayValue": "1,9 s"
+            },
+            {
+              "id": "largest-contentful-paint",
+              "title": "Largest Contentful Paint",
+              "score": 0.52,
+              "displayValue": "3,9 s"
+            },
+            {
+              "id": "speed-index",
+              "title": "Speed Index",
+              "score": 0.99,
+              "displayValue": "2,0 s"
+            },
+            {
+              "id": "max-potential-fid",
+              "title": "Max Potential First Input Delay",
+              "score": 0.99,
+              "displayValue": "70 ms"
+            },
+            {
+              "id": "interactive",
+              "title": "Time to Interactive",
+              "score": 0.88,
+              "displayValue": "3,9 s"
+            },
+            {
+              "id": "heading-order",
+              "title": "Os elementos de título não aparecem em uma ordem sequencial descendente",
+              "score": 0
+            },
+            {
+              "id": "unused-javascript",
+              "title": "Reduza o JavaScript não usado",
+              "score": 0,
+              "displayValue": "Economia estimada de 90 KiB"
+            },
+            {
+              "id": "bf-cache",
+              "title": "A página impede a restauração do cache de avanço e retorno",
+              "score": 0,
+              "displayValue": "1 motivo para a falha"
+            },
+            {
+              "id": "lcp-discovery-insight",
+              "title": "Descoberta de solicitações de LCP",
+              "score": 0
+            },
+            {
+              "id": "network-dependency-tree-insight",
+              "title": "Árvore de dependência da rede",
+              "score": 0
+            },
+            {
+              "id": "render-blocking-insight",
+              "title": "Solicitações que bloquearam a renderização",
+              "score": 0.5
+            }
+          ]
+        }
+      ],
+      "median": {
+        "categories": {
+          "performance": 87,
+          "accessibility": 99,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "lcpMs": 3910.7338,
+        "cls": 0,
+        "tbtMs": 24.5
+      },
+      "belowTarget": [
+        "performance"
+      ]
+    }
+  ],
+  "finishedAt": "2026-10-20T20:21:54.828Z"
+}
