@@ -1,17 +1,17 @@
 import type { Nft, User, Wallet } from '../lib/contracts'
 
-// Contas exclusivamente fictícias: alice@orbit.test / Orbit123! e bruno@orbit.test / Orbit123!.
+// Contas exclusivamente fictícias: pedro@kurio.test / Jungle123! e pedro_santos@kurio.test / Jungle123!.
 // Hashes pré-computados com PBKDF2/SHA-256, 120 mil iterações e salts distintos.
 // Cadastro, login e alteração de senha continuam usando WebCrypto em tempo de execução.
 export const seedCredentials = {
-  alice: {
-    salt: '9692e3f6721a4b31277f599e06440af8',
-    hash: '157e9315cf78884e8d7d4e6639c8b530fda480b273a2a59fabe661150d84bb6b',
+  pedro: {
+    salt: '2dd691542bab3d1e3651cc2553d6d5a9',
+    hash: '440c5db82507c0fd7a61e2d02a9daf1c53fbb71f197a68db8abc99ad79e6d7f6',
     iterations: 120_000,
   },
-  bruno: {
-    salt: 'dcd06d5c2f0882de67be6f926bd53e06',
-    hash: '6d04087828ee70005e680ee927aa543847b4f157322f37693b3bf7a545dcddd0',
+  pedro_santos: {
+    salt: '2dd691542bab3d1e3651cc2553d6d5a9',
+    hash: '440c5db82507c0fd7a61e2d02a9daf1c53fbb71f197a68db8abc99ad79e6d7f6',
     iterations: 120_000,
   },
 }
@@ -64,19 +64,19 @@ export function seedNfts(): Nft[] {
 
 export function seedUsers(): User[] {
   return [
-    { id: 'alice', name: 'Alice Cosmos', email: 'alice@orbit.test', bio: 'Colecionando novos universos.', avatar: '/assets/emerald-ape.png', version: 1 },
-    { id: 'bruno', name: 'Bruno Orbit', email: 'bruno@orbit.test', bio: 'Arte, som e possibilidades.', avatar: '/assets/sage-nomad.png', version: 1 },
+    { id: 'pedro', name: 'Pedro Vergilio', email: 'pedro@kurio.test', bio: 'Colecionando novos universos.', avatar: '/assets/emerald-ape.png', version: 1 },
+    { id: 'pedro_santos', name: 'Pedro Santos', email: 'pedro_santos@kurio.test', bio: 'Arte, som e possibilidades.', avatar: '/assets/sage-nomad.png', version: 1 },
   ]
 }
 
 export function seedWallets(): Record<string, Wallet[]> {
   return {
-    alice: [
-      { id: 'alice-ethereum', label: 'Minha Ethereum', address: `0x${'a1'.repeat(20)}`, network: 'Ethereum', primary: true },
-      { id: 'alice-polygon', label: 'Minha Polygon', address: `0x${'a2'.repeat(20)}`, network: 'Polygon', primary: false },
+    pedro: [
+      { id: 'pedro-ethereum', label: 'Minha Ethereum', address: `0x${'a1'.repeat(20)}`, network: 'Ethereum', primary: true },
+      { id: 'pedro-polygon', label: 'Minha Polygon', address: `0x${'a2'.repeat(20)}`, network: 'Polygon', primary: false },
     ],
-    bruno: [
-      { id: 'bruno-ethereum', label: 'Carteira principal', address: `0x${'b1'.repeat(20)}`, network: 'Ethereum', primary: true },
+    pedro_santos: [
+      { id: 'pedro_santos-ethereum', label: 'Carteira principal', address: `0x${'b1'.repeat(20)}`, network: 'Ethereum', primary: true },
     ],
   }
 }

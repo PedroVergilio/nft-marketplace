@@ -12,26 +12,60 @@ import { Favorite, NftCard } from '../components/NftCard'
 import { CollectionStrip } from '../components/CollectionStrip'
 import { QuantityStepper } from '../components/QuantityStepper'
 import { Button, Dialog, ErrorState, Field, Input, Loading, Select } from '../components/ui'
+import { Slider } from '../components/ui/slider'
 
 const categories = [['Arte digital', 'Arte'], ['Fotografia', 'Fotografia'], ['Arte abstrata', 'Abstrato'], ['Arte 3D', '3D']] as const
 
 function PriceRange({ min, max, update }: { min: string; max: string; update: (patch: Partial<CatalogSearch>) => void }) {
   const [draft, setDraft] = useState({ min, max })
   const [errors, setErrors] = useState({ min: '', max: '' })
+
   useEffect(() => setDraft({ min, max }), [min, max])
+
   const commit = (key: 'min' | 'max') => {
     const valid = draft[key] === '' || /^\d+(\.\d{1,18})?$/.test(draft[key])
     setErrors((old) => ({ ...old, [key]: valid ? '' : 'Use um decimal com até 18 casas.' }))
     if (valid) update({ [key]: draft[key] })
   }
-  return <div className="price-range"><h3>Faixa de preço</h3><div className="price-range-line" aria-hidden="true"><i /><i /></div>
-    <div className="price-filter">{(['min', 'max'] as const).map((key) =>
-      <Field key={key} label={key === 'min' ? 'Mín. ETH' : 'Máx. ETH'} error={errors[key]}>{(props) =>
-        <Input {...props} inputMode="decimal" placeholder={key === 'min' ? '0' : 'Sem limite'} value={draft[key]}
-          onChange={(event) => setDraft((old) => ({ ...old, [key]: event.target.value }))}
-          onBlur={() => commit(key)} onKeyDown={(event) => { if (event.key === 'Enter') commit(key) }} />
-      }</Field>)}</div>
-  </div>
+
+  // Converte as strings para números para o Slider (limite visual de 0 a 10 ETH)
+  const sliderMin = Number(draft.min) || 0
+  const sliderMax = Number(draft.max) || 10
+
+  return (
+    <div className="price-range">
+      <h3>Faixa de preço</h3>
+      
+      {/* Slider interativo no lugar da antiga barra estática */}
+      <div className="py-6 px-2">
+        <Slider
+          min={0}
+          max={10}
+          step={0.1}
+          value={[sliderMin, sliderMax]}
+          onValueChange={(val) => {
+            setDraft({ min: String(val[0]), max: String(val[1]) })
+            setErrors({ min: '', max: '' })
+          }}
+          onValueCommit={(val) => {
+            update({ min: String(val[0]), max: String(val[1]) })
+          }}
+        />
+      </div>
+
+      <div className="price-filter">
+        {(['min', 'max'] as const).map((key) => (
+          <Field key={key} label={key === 'min' ? 'Mín. ETH' : 'Máx. ETH'} error={errors[key]}>
+            {(props) => (
+              <Input {...props} inputMode="decimal" placeholder={key === 'min' ? '0' : 'Sem limite'} value={draft[key]}
+                onChange={(event) => setDraft((old) => ({ ...old, [key]: event.target.value }))}
+                onBlur={() => commit(key)} onKeyDown={(event) => { if (event.key === 'Enter') commit(key) }} />
+            )}
+          </Field>
+        ))}
+      </div>
+    </div>
+  )
 }
 
 export function KurioHero() {
