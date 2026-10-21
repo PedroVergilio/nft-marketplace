@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams, useSearch } from '@tanstack/react-router'
 import { useQuery } from '@tanstack/react-query'
-import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Search, ShieldCheck, ShoppingCart, SlidersHorizontal, ZoomIn } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Search, ShieldCheck, ShoppingCart, SlidersHorizontal, ZoomIn, MailCheck } from 'lucide-react'
 import { api, errorMessage } from '../lib/api'
 import type { CatalogSearch, Nft } from '../lib/contracts'
 import { MAX_EDITION_QUANTITY } from '../lib/contracts'
@@ -191,19 +191,58 @@ function DetailContent({ nft, updating }: { nft: Nft; updating: boolean }) {
       <section className="detail-info"><h1>{nft.name}</h1>
         <div className="detail-price-row"><strong className="detail-price">{displayEth(edition.price)}</strong><span className="muted tiny">Por {nft.creator}</span></div>
         <h2 className="detail-about-title">Sobre este NFT:</h2><p className="detail-description">{nft.description}</p>
-        <fieldset className="edition-picker"><legend>Edição</legend><div className="edition-chips">{nft.editions.map((item) => <label key={item.id} className={editionId === item.id ? 'selected' : ''}>
-          <input type="radio" name={`edition-${nft.id}`} value={item.id} checked={editionId === item.id}
-            aria-label={`${item.name} · ${item.stock > 0 ? `${item.stock} disponíveis` : 'Esgotada'}`}
-            onChange={() => { setEditionId(item.id); setQuantity(1) }} />
-          {item.id === 'original' ? '1/1' : '1/50'}
-        </label>)}</div></fieldset>
-        <div className="detail-meta"><p>ID do token: <span>{nft.name.match(/#\d+/)?.[0] || nft.id}</span></p><p>Coleção: Kurio Apes</p><p>Categoria: {nft.category}</p></div>
-        <div className="detail-purchase"><div className="detail-quantity"><span className="quantity-caption">Qtd.</span><QuantityStepper label="Quantidade" value={quantity} max={limit} onChange={setQuantity} error={!valid && edition.stock > 0 ? `Escolha uma quantidade inteira de 1 a ${limit}.` : undefined} /><strong className="mobile-purchase-price">{displayEth(edition.price)}</strong></div>
-          <div className="purchase-actions"><Button disabled={action.isPending || !valid} onClick={() => add(true)}>Comprar NFT</Button><Button variant="outline" className="detail-add" aria-label="Adicionar ao carrinho" loading={action.isPending} disabled={!valid} onClick={() => add(false)}><ShoppingCart size={20} /><span>Adicionar ao carrinho</span></Button><Favorite nft={nft} text /></div>
+        
+        <fieldset className="edition-picker"><legend>Edição</legend>
+          <div className="edition-chips">
+            {nft.editions.map((item) => <label key={item.id} className={editionId === item.id ? 'selected' : ''}>
+              <input type="radio" name={`edition-${nft.id}`} value={item.id} checked={editionId === item.id}
+                aria-label={`${item.name} · ${item.stock > 0 ? `${item.stock} disponíveis` : 'Esgotada'}`}
+                onChange={() => { setEditionId(item.id); setQuantity(1) }} />
+              {item.id === 'original' ? '1/1' : '1/50'}
+            </label>)}
+            <span className="edition-status-badge">ABERTA</span>
+          </div>
+        </fieldset>
+
+        {/* Bloco de compra movido para cima e alinhado em linha */}
+        <div className="detail-purchase inline-purchase-row">
+          <div className="purchase-actions-group">
+            <div className="detail-quantity">
+              <QuantityStepper label="Quantidade" value={quantity} max={limit} onChange={setQuantity} error={!valid && edition.stock > 0 ? `Escolha uma quantidade inteira de 1 a ${limit}.` : undefined} />
+            </div>
+            <div className="purchase-actions">
+              <Button disabled={action.isPending || !valid} onClick={() => add(true)}>COMPRAR</Button>
+              <Favorite nft={nft} text />
+            </div>
+          </div>
           <p className="tiny muted detail-limit">Limite disponível por compra: {limit}. {updating && <span role="status">Atualizando disponibilidade...</span>}</p>
           {edition.stock === 0 && <p className="inline-error" role="status">Esta edição está esgotada. Selecione outra edição.</p>}
         </div>
-        <p className="secure-note tiny muted"><ShieldCheck size={14} />Compra e carteira simuladas. Sem transação real.</p>
+
+        {/* Metadados movidos para baixo */}
+        <dl className="nft-meta-list">
+          <div><dt>ID do token:</dt><dd>{nft.name.match(/#\d+/)?.[0] || nft.id}</dd></div>
+          <div><dt>Coleção:</dt><dd>Kurio Apes</dd></div>
+          <div><dt>Atributos:</dt><dd>Óculos, Esmeralda, Raro</dd></div>
+        </dl>
+
+        {/* Compartilhamento */}
+        <div className="nft-share-row">
+          <span>Compartilhar este NFT:</span>
+          <div className="nft-share-actions">
+            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`} target="_blank" rel="noreferrer" aria-label="Compartilhar no LinkedIn" title="LinkedIn">
+              <span className="font-bold">in</span>
+            </a>
+            <a href={`mailto:?subject=${encodeURIComponent(`Confira ${nft.name} na Kurio`)}&body=${encodeURIComponent(window.location.href)}`} aria-label="Compartilhar por e-mail" title="E-mail">
+              <MailCheck size={16} aria-hidden="true" />
+            </a>
+            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`Confira ${nft.name} na Kurio:${window.location.href}`)}`} target="_blank" rel="noreferrer" aria-label="Compartilhar no X (Twitter)" title="X">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <p className="secure-note tiny muted mt-4"><ShieldCheck size={14} />Compra e carteira simuladas. Sem transação real.</p>
       </section>
     </div>
     <section className="detail-information"><div className="detail-tabs" role="tablist" aria-label="Informações do NFT">
@@ -211,7 +250,23 @@ function DetailContent({ nft, updating }: { nft: Nft; updating: boolean }) {
       <button role="tab" id="reviews-tab" aria-selected={tab === 'reviews'} aria-controls="reviews-panel" tabIndex={tab === 'reviews' ? 0 : -1} onKeyDown={(event) => { if (event.key === 'ArrowLeft') { setTab('details'); document.getElementById('detail-tab')?.focus() } }} onClick={() => setTab('reviews')}>Avaliações de colecionadores</button>
     </div>
       <div role="tabpanel" id={tab === 'details' ? 'detail-panel' : 'reviews-panel'} aria-labelledby={tab === 'details' ? 'detail-tab' : 'reviews-tab'} tabIndex={0}>
-        {tab === 'details' ? <><p>{nft.description}</p><p>Explore a arte, escolha uma edição disponível e guarde suas descobertas na sua coleção. Os dados de preço e disponibilidade são atualizados durante a navegação.</p><h3>Rede:</h3><p>Ethereum e Polygon na simulação de compra.</p><h3>Procedência:</h3><p>Referência visual da coleção Kurio. Não há contrato blockchain ou transferência real de propriedade nesta demonstração.</p></> : <p>Avaliações de colecionadores ainda não estão disponíveis. Não foram geradas notas ou avaliações fictícias.</p>}
+        {tab === 'details' ? (
+          <div className="nft-figma-details">
+            <p>{nft.name} é uma obra digital 1/50 finalizada à mão da coleção Kurio Editions. Cada atributo fica armazenado nos metadados do token e verificado na Ethereum. A obra explora identidade, movimento e luz em um mundo digital sem fronteiras.</p>
+            <p className="mt-4">A propriedade inclui a arte em alta resolução, lançamentos exclusivos para colecionadores e um registro permanente de procedência registrada na rede. {nft.creator || 'Luna Nova'} recebe 5% de direitos autorais nas vendas secundárias, apoiando novos trabalhos e lançamentos da comunidade.</p>
+            
+            <h3 className="mt-4">Rede:</h3>
+            <p>Cunhado na Ethereum com procedência imutável e metadados armazenados no IPFS.</p>
+            
+            <h3 className="mt-4">Contrato:</h3>
+            <p>Direitos autorais do criador: 5% nas vendas secundárias, pagos automaticamente pelos mercados compatíveis.</p>
+            
+            <h3 className="mt-4">Direitos autorais:</h3>
+            <p>0x7A42...19E8 · Contrato inteligente ERC-721 verificado.</p>
+          </div>
+        ) : (
+          <p>Avaliações de colecionadores ainda não estão disponíveis. Não foram geradas notas ou avaliações fictícias.</p>
+        )}
       </div>
     </section>
     <CollectionStrip excludeId={nft.id} />
